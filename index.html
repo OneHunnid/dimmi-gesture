@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Twitter Aggregator</title>
+
+	<link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="styles/main.less.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+	<!-- Header -->
+	<header class="header">
+		<div class="header__logo">Logo / tweets</div>
+	</header>
+
+	<!-- Main Content -->
+	<main class="main">
+		<div class="container-flex" id="main-content"></div>
+	</main> <!-- End Main Content -->
+
+	<!-- Current Tweet Partials -->
+	<script id="active-tweet-partial" type="underscore/template">
+		<section class="tweetFlexItem">
+			<div class="activeTweet">
+				<div class="activeTweet__avatar"></div>
+				<div class="activeTweet__name">@johnsmith</div>
+				<div class="activeTweet__message">This is what a tweet will look like in 140 characters or less because that/s the limit.</div>
+			</div>
+		</section>
+	</script>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="footer__version">Version 1.0 | <a href="#">Changelog</a></div>
+	</footer>
+
+	<!--  ROUTES  -->
+	<script src="scripts/director.min.js"></script>
+	<script src="scripts/routes.js"></script>
+
+	<!-- DOM -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+	<!-- VIEWS -->
+	<script src="scripts/views/home.js"></script>
+
+	<!-- ROUTER DIRECTOR -->
+	<script src="scripts/app.js"></script>
+
+</body>
+</html>
