@@ -29,11 +29,11 @@
 	<script id="active-tweet-partial" type="underscore/template">
 		<section class="tweetFlexItem">
 
-		<% for (var i; sqTweetData; i++;) { %>
+		<% for (var i = 0; i < sqTweetData.length; i++){%>
 			<div class="activeTweet">
-				<div class="activeTweet__avatar"><img src="<%= sqTweetData[ i ].avatar %>"></div>
+				<div class="activeTweet__avatar"><img src="<%= sqTweetData[ i ].user.profile_image_url %>"></div>
 				<div class="activeTweet__wrapper">
-					<div class="activeTweet__name"> <%= sqTweetData[ i ].user.profile_image_url %> </div>
+					<div class="activeTweet__name"> <%= sqTweetData[ i ].user.name %> </div>
 					<div class="activeTweet__message"><%= sqTweetData[ i ].text %></div>
 				</div>
 			</div>
