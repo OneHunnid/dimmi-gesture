@@ -1,5 +1,15 @@
 var Home = (function() {
 
+	var sqTweetData = {
+		user: [{
+			profile_image_url : "assets/avatar.png",
+			name : "@johnsnow"
+		}],
+		text : "Someone once said that I know nothing..."
+	};
+
+	console.log(sqTweetData);
+
 	// Partials
 	var tweetPartial = $('#active-tweet-partial').html();
 		tweetPartialCompiled = _.template( tweetPartial );
@@ -10,7 +20,7 @@ var Home = (function() {
 	function initHome() {
 
 		// load main content
-		$('#main-content').html( tweetPartialCompiled );
+		$('#main-content').html( tweetPartialCompiled(sqTweetData) );
 
 		// bind events
 
