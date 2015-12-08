@@ -4,10 +4,13 @@ var less = require('less');
 var twitter = require('twitter');
 var underscore = require('underscore');
 
-// Create an express instance and set a port variable
+// Create an express instance
 var express = require('express');
 var app = express();
 var path = require('path');
+
+app.use('/scripts', express.static(__dirname + '/scripts'));
+app.use('/styles', express.static(__dirname + '/styles'));
 
 // Load index.html
 app.get('/', function (req, res) {
@@ -21,3 +24,4 @@ var server = app.listen(8080, function () {
 
   console.log('Example app listening at http://%s:%s', host, port);
 });
+
