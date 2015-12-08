@@ -375,6 +375,7 @@ body {
   /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
+  letter-spacing: .5px;
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #010101;
   background-color: #f8f8f8;
@@ -433,6 +434,28 @@ a {
 .container-flex .tweetFlexItem {
   margin: 0 auto;
   max-width: 50%;
+}
+.activeTweet {
+  position: relative;
+}
+.activeTweet .activeTweet__avatar {
+  float: left;
+}
+.activeTweet .activeTweet__avatar img {
+  max-width: 50px;
+  border-radius: 100%;
+}
+.activeTweet .activeTweet__wrapper {
+  margin-left: 70px;
+}
+.activeTweet .activeTweet__name {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  margin-bottom: 1rem;
+}
+.activeTweet .activeTweet__message {
+  font-size: 3rem;
+  line-height: 4rem;
 }
 .footer {
   position: absolute;
