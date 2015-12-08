@@ -8,7 +8,7 @@ var Home = (function() {
 		text : "Someone once said that I know nothing..."
 	};
 
-	console.log(sqTweetData);
+	console.log("this is sqTweetData", sqTweetData);
 
 	// Partials
 	var tweetPartial = $('#active-tweet-partial').html();
@@ -20,7 +20,7 @@ var Home = (function() {
 	function initHome() {
 
 		// load main content
-		$('#main-content').html( tweetPartialCompiled(sqTweetData) );
+		$('#main-content').html(tweetPartialCompiled( sqTweetData ));
 
 		// bind events
 
