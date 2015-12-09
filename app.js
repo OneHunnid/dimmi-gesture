@@ -2,7 +2,6 @@
 var jquery = require('jquery');
 var less = require('less');
 var twitter = require('twitter');
-var underscore = require('underscore');
 
 // Create an express instance
 var express = require('express');
@@ -24,4 +23,3 @@ var server = app.listen(8080, function () {
 
   console.log('Example app listening at http://%s:%s', host, port);
 });
-
