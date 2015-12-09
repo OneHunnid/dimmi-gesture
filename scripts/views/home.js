@@ -1,6 +1,6 @@
 var Home = (function() {
 
-	foo = {
+	var twitterData = {
 		tweet1 : [{
 			user: {
 				profile_image_url : "assets/avatar.png",
@@ -24,13 +24,6 @@ var Home = (function() {
 		}]
 	};
 
-	var twitterData = {
-		user: {
-			profile_image_url : "assets/avatar.png",
-			name : "@johnsnow"
-		},
-		text : "Someone once said that I know nothing..."
-	};
 
 	// Partials
 	var tweetPartial = $('#active-tweet-partial').html();
