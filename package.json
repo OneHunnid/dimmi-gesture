@@ -6,7 +6,8 @@
   "dependencies": {
     "express": "^4.13.3",
     "jquery": "^2.1.4",
-    "less": "^2.5.3"
+    "less": "^2.5.3",
+    "twitter": "^1.2.5"
   },
   "devDependencies": {},
   "scripts": {
