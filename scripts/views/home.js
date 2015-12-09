@@ -1,10 +1,10 @@
 var Home = (function() {
 
 	var twitterData = {
-		user: [{
+		user: {
 			profile_image_url : "assets/avatar.png",
 			name : "@johnsnow"
-		}],
+		},
 		text : "Someone once said that I know nothing..."
 	};
 
