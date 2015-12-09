@@ -1,5 +1,22 @@
 var Home = (function() {
 
+	foo = {
+		tweet1 : [{
+			user: {
+				profile_image_url : "assets/avatar.png",
+				name : "@johnsnow"
+			},
+			text : "Someone once said that I know nothing..."
+		}],
+		tweet2 : [{
+			user: {
+				profile_image_url : "assets/avatar.png",
+				name : "@johnsnow"
+			},
+			text : "Someone once said that I know nothing..."
+		}]
+	};
+
 	var twitterData = {
 		user: {
 			profile_image_url : "assets/avatar.png",
