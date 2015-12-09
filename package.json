@@ -1,13 +1,12 @@
 {
-  "name": "SPAKItt",
+  "name": "twitterAggregator",
   "version": "1.0.0",
-  "description": "SPAKIT is a simple framework for creating single page applications for the web.",
+  "description": "Simple Twitter Aggregator",
   "main": "index.js",
   "dependencies": {
     "backbone": "^1.2.3",
     "jquery": "^2.1.4",
     "less": "^2.5.1",
-    "underscore": "^1.8.3"
   },
   "devDependencies": {},
   "scripts": {
@@ -15,23 +14,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OneHunnid/SPAKIT.git"
+    "url": "git+https://github.com/OneHunnid/twitteraggregator.git"
   },
   "keywords": [
-    "Web App",
-    "template",
-    "boilerplate",
-    "framework",
-    "skeleton",
-    "SPA",
-    "template",
-    "developer",
-    "single page application"
+    "Twitter",
+    "Aggregator"
   ],
-  "author": "Chris Limbrick & Mottaqui Karim",
+  "author": "Chris Limbrick & Aaron Miller",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OneHunnid/SPAKIT/issues"
+    "url": "https://github.com/OneHunnid/twitteraggregator/issues"
   },
-  "homepage": "https://github.com/OneHunnid/SPAKIT#readme"
+  "homepage": "https://github.com/OneHunnid/twitteraggregator#readme"
 }
