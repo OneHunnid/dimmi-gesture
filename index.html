@@ -29,7 +29,7 @@
 	<script id="active-tweet-partial" type="underscore/template">
 		<section class="tweetFlexItem">
 			<% for (var k in sqTweetData) { %>
-				<% for (var l in sqTweetData[k]) { %>
+				<% for (var l = 0; l < sqTweetData[k].length; l++) { %>
 					<div class="activeTweet">
 						<div class="activeTweet__avatar"><img src="<%= sqTweetData[k][l].user.profile_image_url %>"></div>
 						<div class="activeTweet__wrapper">
