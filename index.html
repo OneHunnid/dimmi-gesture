@@ -28,28 +28,19 @@
 	<!-- Current Tweet Partials -->
 	<script id="active-tweet-partial" type="underscore/template">
 		<section class="tweetFlexItem">
-
-<% console.log(foo); %>
-<% for (var key in foo) { %>
-	<% console.log(foo[key]); %>
-	<% for (var i = 0; i < foo[key].length; i++) {%>
-		<% for(var anotherKey in foo[key][i]) {
-			console.log(foo[key][i].text);
-		} %>
-<% }} %>
-
-		<% for (var i in sqTweetData) { %>
-			<% if (sqTweetData.hasOwnProperty(i)) { %>
-				<div class="activeTweet">
-					<div class="activeTweet__avatar"><img src="<%= sqTweetData.user.profile_image_url %>"></div>
-					<div class="activeTweet__wrapper">
-						<div class="activeTweet__name"><%= sqTweetData.user.name %></div>
-						<div class="activeTweet__message"><%= sqTweetData.text %></div>
-					</div>
-				</div>
+			<% for (var k in sqTweetData) { %>
+				<% for (var i = 0; i < sqTweetData[k].length; i++) {%>
+					<% for(var anotherKey in sqTweetData[k][i]) { %>
+						<div class="activeTweet">
+							<div class="activeTweet__avatar"><img src="<%= sqTweetData[k][i].user.profile_image_url %>"></div>
+							<div class="activeTweet__wrapper">
+								<div class="activeTweet__name"><%= sqTweetData[k][i].user.name %></div>
+								<div class="activeTweet__message"><%= sqTweetData[k][i].text %></div>
+							</div>
+						</div>
+					<% } %>
+				<% } %>
 			<% } %>
-		<% } %>
-
 		</section>
 	</script>
 
