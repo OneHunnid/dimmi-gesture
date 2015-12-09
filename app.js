@@ -17,6 +17,17 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+// Load twitter module
+app.use('/getTwitterInfo', function(req, res) {
+  // Use the twitter variable here to pull in data
+
+  // Then return it in json format:
+  res.json({
+    success: true,
+    data: []
+  });
+});
+
 // Start our server
 var server = app.listen(8080, function () {
   var host = server.address().address;
