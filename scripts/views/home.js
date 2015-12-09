@@ -4,9 +4,9 @@ var Home = (function() {
 		tweet1 : [{
 			user: {
 				profile_image_url : "assets/avatar.png",
-				name : "@johnsnow"
+				name : "@Hodor"
 			},
-			text : "Someone once said that I know nothing..."
+			text : "Hodor Hodor Hodor Hodor Hodor Hodor Hodor..... Hodor"
 		}],
 		tweet2 : [{
 			user: {
@@ -14,6 +14,13 @@ var Home = (function() {
 				name : "@johnsnow"
 			},
 			text : "Someone once said that I know nothing..."
+		}],
+		tweet3 : [{
+			user: {
+				profile_image_url : "assets/avatar.png",
+				name : "@drwho"
+			},
+			text : "Fantastic!"
 		}]
 	};
 
