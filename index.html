@@ -29,6 +29,15 @@
 	<script id="active-tweet-partial" type="underscore/template">
 		<section class="tweetFlexItem">
 
+<% console.log(foo); %>
+<% for (var key in foo) { %>
+	<% console.log(foo[key]); %>
+	<% for (var i = 0; i < foo[key].length; i++) {%>
+		<% for(var anotherKey in foo[key][i]) {
+			console.log(foo[key][i].text);
+		} %>
+<% }} %>
+
 		<% for (var i in sqTweetData) { %>
 			<% if (sqTweetData.hasOwnProperty(i)) { %>
 				<div class="activeTweet">
