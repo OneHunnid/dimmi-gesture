@@ -36,23 +36,23 @@ var Home = (function() {
 		return twitterData;
 	}
 
+	// count variable to increment timeout
+	count = 1;
 	for (var k in sqTweetData) {
-	(function(k){
-	    // Gives me object {tweet1: Array[1], tweet2: Array[1]. tweet3: Array[1]}
-	    console.log("sqTweetData = ",sqTweetData);
 
+	  // use self executing anonymous function to create a new scope
+	  (function(k) {
 	    for (var l = 0; l < sqTweetData[k].length; l++) {
-	        var foo = sqTweetData[k][l]
-	        // Loops sqTweetData and returns object {user: object, text: "hodor hodor hodor etc"}
-	        console.log("foo = ", foo);
+	      var foo = sqTweetData[k][l]
 
-	        setInterval(function() {
-
-	            i++;
-	        }, 3000);
+	      // using setTimeout and incrementing the delay by count
+	      setTimeout(function() {
+	        console.log(foo);
+	        i++;
+	      }, 3000 * count);
 	    }
-	})(k)
-
+	    count++;
+	  })(k)
 	}
 	// KICKSTART VIEW
 	function initHome() {
