@@ -1,5 +1,6 @@
 var Home = (function() {
 
+	var i = 0;
 	var twitterData = {
 		tweet1 : [{
 			user: {
@@ -24,6 +25,7 @@ var Home = (function() {
 		}]
 	};
 
+	sqTweetData = getTweetData();
 
 	// Partials
 	var tweetPartial = $('#active-tweet-partial').html();
@@ -34,8 +36,24 @@ var Home = (function() {
 		return twitterData;
 	}
 
-	sqTweetData = getTweetData();
+	for (var k in sqTweetData) {
+	(function(k){
+	    // Gives me object {tweet1: Array[1], tweet2: Array[1]. tweet3: Array[1]}
+	    console.log("sqTweetData = ",sqTweetData);
 
+	    for (var l = 0; l < sqTweetData[k].length; l++) {
+	        var foo = sqTweetData[k][l]
+	        // Loops sqTweetData and returns object {user: object, text: "hodor hodor hodor etc"}
+	        console.log("foo = ", foo);
+
+	        setInterval(function() {
+
+	            i++;
+	        }, 3000);
+	    }
+	})(k)
+
+	}
 	// KICKSTART VIEW
 	function initHome() {
 
