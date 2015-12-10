@@ -28,8 +28,8 @@ var Home = (function() {
 	// DOM Handlers
 	function startTimeout(i) {
         foo = twitterData[i];
-        console.log("twitterData i ",foo.text);
 	    setHTML();
+	    fadeInData();
       }
 
 	function setHTML() {
@@ -38,10 +38,15 @@ var Home = (function() {
 		document.querySelector('.activeTweet__avatar img').src = foo.user.profile_image_url;
 	}
 
+	function fadeInData() {
+		$('.activeTweet').hide().fadeIn(900);
+	}
+
 	for (var i = 0; i < twitterData.length; i++) {
 		if (i === 0) {
 			foo = twitterData[i];
 			setHTML();
+			fadeInData();
 		}
 		else {
 	      // using setTimeout and incrementing the delay by count
