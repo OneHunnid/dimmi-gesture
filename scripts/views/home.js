@@ -1,72 +1,60 @@
 var Home = (function() {
-
-	var i = 0;
-	var twitterData = {
-		tweet1 : [{
+	var foo
+	var twitterData = [
+		{
 			user: {
 				profile_image_url : "assets/avatar.png",
 				name : "@Hodor"
 			},
 			text : "Hodor Hodor Hodor Hodor Hodor Hodor Hodor..... Hodor"
-		}],
-		tweet2 : [{
+		},
+		{
 			user: {
 				profile_image_url : "assets/avatar.png",
 				name : "@johnsnow"
 			},
 			text : "Someone once said that I know nothing..."
-		}],
-		tweet3 : [{
+		},
+		{
 			user: {
 				profile_image_url : "assets/avatar.png",
 				name : "@drwho"
 			},
-			text : "Fantastic!"
-		}]
-	};
+			text : "I love Squarespace Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sapien lacus, dignissim sagittis metus ac, imperdiet maximus"
+		}
+	]
 
-	sqTweetData = getTweetData();
-
-	// Partials
-	var tweetPartial = $('#active-tweet-partial').html();
-		tweetPartialCompiled = _.template( tweetPartial );
 
 	// DOM Handlers
-	function getTweetData() {
-		return twitterData;
+	function startTimeout(i) {
+        foo = twitterData[i];
+        console.log("twitterData i ",foo.text);
+	    setHTML();
+      }
+
+	function setHTML() {
+		document.querySelector(".activeTweet__message").innerHTML = foo.text;
+		document.querySelector(".activeTweet__name").innerHTML = foo.user.name;
+		document.querySelector('.activeTweet__avatar img').src = foo.user.profile_image_url;
 	}
 
-
-	// count variable to increment timeout
-	count = 1;
-	foo = [ ];
-	for (var k in twitterData) {
-
-	  // use self executing anonymous function to create a new scope
-	  (function(k) {
-	    for (var l = 0; l < sqTweetData[k].length; l++) {
-	      var timedTwitterData = sqTweetData[k][l]
-
+	for (var i = 0; i < twitterData.length; i++) {
+		if (i === 0) {
+			foo = twitterData[i];
+			setHTML();
+		}
+		else {
 	      // using setTimeout and incrementing the delay by count
-	      setTimeout(function() {
-	        foo = timedTwitterData;
-
-			console.log("foo inside of setTimeout = ",foo);
-	        
-	        i++;
-	      }, 3000 * count);
-	    }
-	    count++;
-	  })(k)
+	      setTimeout(startTimeout.bind(this,i), 3000 * i);
+		}
 	}
 
-	console.log("Global foo = ", foo);
 
 	// KICKSTART VIEW
 	function initHome() {
 
-		// load main content
-		$('#main-content').html(tweetPartialCompiled( sqTweetData ));
+		// // load main content
+		$('#main-content').html();
 
 	}
 	return {
