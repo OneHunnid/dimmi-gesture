@@ -2,6 +2,21 @@
 *******************************/
 @import "normalize.less";
 
+@font-face {
+	font-family: gotham-bold;
+	src: url("../assets/font/Gotham-Bold.otf");
+}
+
+@font-face {
+	font-family: gotham-medium;
+	src: url("../assets/font/Gotham-Medium.otf");
+}
+
+@font-face {
+	font-family: gotham-thin;
+	src: url("../assets/font/Gotham-Thin.otf");
+}
+
 *, *:before, &:after {
 	box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -19,7 +34,7 @@ body {
 	line-height: 1.6;
 	font-weight: 400;
 	letter-spacing: .5px;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "gotham-medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #010101;
 	background-color: #f8f8f8;
 	-webkit-font-smoothing: antialiased;
@@ -68,6 +83,13 @@ a {
 
 /* Mixins
 *******************************/
+.GothamBold {
+	font-family: "gotham-bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.GothamMedium {
+	font-family: "gotham-medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 
 /* Main LESS
@@ -99,29 +121,33 @@ a {
 }
 
 .activeTweet {
+	.GothamBold;
 	position: relative;
 	text-align: center;
 
 	.activeTweet__avatar {
+	    text-align: center;
+	    display: inline-block;
+
 		img {
-			max-width: 50px;
+			display: block;
+			max-width: 60px;
 			border-radius: 100%;
 		}
 	}
 
-	.activeTweet__wrapper {
-		margin-left: 70px;
-	}
-
 	.activeTweet__name {
-		font-size: 2rem;
+		.GothamMedium;
+		font-size: 1.8rem;
 	    line-height: 3rem;
-	    margin-bottom: 15px;
+        margin-bottom: 30px;
+	    font-weight: 400;
 	}
 
 	.activeTweet__message {
 		font-size: 2.6rem;
 		line-height: 3.6rem;
+		font-weight: 500;
 	}
 }
 
@@ -130,7 +156,7 @@ a {
     bottom: 0;
     left: 0;
     padding: 5px 15px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 @media (min-width: 1700px ){
