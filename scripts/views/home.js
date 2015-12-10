@@ -36,24 +36,32 @@ var Home = (function() {
 		return twitterData;
 	}
 
+
 	// count variable to increment timeout
 	count = 1;
-	for (var k in sqTweetData) {
+	foo = [ ];
+	for (var k in twitterData) {
 
 	  // use self executing anonymous function to create a new scope
 	  (function(k) {
 	    for (var l = 0; l < sqTweetData[k].length; l++) {
-	      var foo = sqTweetData[k][l]
+	      var timedTwitterData = sqTweetData[k][l]
 
 	      // using setTimeout and incrementing the delay by count
 	      setTimeout(function() {
-	        console.log(foo);
+	        foo = timedTwitterData;
+
+			console.log("foo inside of setTimeout = ",foo);
+	        
 	        i++;
 	      }, 3000 * count);
 	    }
 	    count++;
 	  })(k)
 	}
+
+	console.log("Global foo = ", foo);
+
 	// KICKSTART VIEW
 	function initHome() {
 
