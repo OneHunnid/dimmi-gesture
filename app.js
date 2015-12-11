@@ -2,11 +2,21 @@
 var jquery = require('jquery');
 var less = require('less');
 var twitter = require('twitter');
+var Twitter = require('node-twitter');
+var env = require('./env');
 
 // Create an express instance
 var express = require('express');
 var app = express();
 var path = require('path');
+
+// Authenticate Twitter
+var client = new twitter({
+    consumer_key: env.TWITTER_CONSUMER_KEY,
+    consumer_secret: env.TWITTER_CONSUMER_SECRET,
+    access_token_key: env.TWITTER_ACCESS_TOKEN_KEY,
+    access_token_secret: env.TWITTER_ACCESS_TOKEN_SECRET,
+});
 
 app.use('/scripts', express.static(__dirname + '/scripts'));
 app.use('/styles', express.static(__dirname + '/styles'));
@@ -14,24 +24,33 @@ app.use('/assets', express.static(__dirname + '/assets'));
 
 // Load index.html
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 // Load twitter module
 app.use('/getTwitterInfo', function(req, res) {
-  // Use the twitter variable here to pull in data
-
-  // Then return it in json format:
-  res.json({
-    success: true,
-    data: []
-  });
+    var params = {screen_name: 'nodejs'};
+    client.get('statuses/user_timeline', params, function(error, tweets, response){
+      if (!error) {
+        console.log(tweets);
+            // Then return it in json format:
+            res.json({
+                success: true,
+                data: tweets
+            });
+      }
+      else {console.log(error);
+          // Then return it in json format:
+            res.json({
+                success: false,
+                error: error
+            });}
+    }); 
 });
 
 // Start our server
 var server = app.listen(8080, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('twitterAggregator listening at http://%s:%s', host, port);
 });
