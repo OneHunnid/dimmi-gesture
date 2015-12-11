@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
 
 // Load twitter module
 app.use('/getTwitterInfo', function(req, res) {
-    client.get('search/tweets', {'q': 'squarespace'}, function(error, tweets, response){
+    client.get('search/tweets', {'q': '#squarespace'}, function(error, tweets, response){
       if (!error) {
         console.log(tweets);
             // Then return it in json format:
