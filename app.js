@@ -14,7 +14,7 @@ var client = new twitter({
     consumer_key: env.TWITTER_CONSUMER_KEY,
     consumer_secret: env.TWITTER_CONSUMER_SECRET,
     access_token_key: env.TWITTER_ACCESS_TOKEN_KEY,
-    access_token_secret: env.TWITTER_ACCESS_TOKEN_SECRET,
+    access_token_secret: env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
 app.use('/scripts', express.static(__dirname + '/scripts'));
@@ -34,7 +34,7 @@ app.use('/getTwitterInfo', function(req, res) {
             // Then return it in json format:
             res.json({
                 success: true,
-                data: tweets
+                tweets: tweets
             });
       }
       else {console.log(error);
