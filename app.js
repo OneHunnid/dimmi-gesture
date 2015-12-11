@@ -2,7 +2,6 @@
 var jquery = require('jquery');
 var less = require('less');
 var twitter = require('twitter');
-var Twitter = require('node-twitter');
 var env = require('./env');
 
 // Create an express instance
@@ -29,8 +28,7 @@ app.get('/', function (req, res) {
 
 // Load twitter module
 app.use('/getTwitterInfo', function(req, res) {
-    var params = {screen_name: 'nodejs'};
-    client.get('statuses/user_timeline', params, function(error, tweets, response){
+    client.get('search/tweets', {'q': 'squarespace'}, function(error, tweets, response){
       if (!error) {
         console.log(tweets);
             // Then return it in json format:
