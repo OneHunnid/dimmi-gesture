@@ -3,6 +3,7 @@ var jquery = require('jquery');
 var less = require('less');
 var twitter = require('twitter');
 var env = require('./env');
+var keywords = require('./keywords');
 
 // Create an express instance
 var express = require('express');
@@ -28,13 +29,23 @@ app.get('/', function (req, res) {
 
 // Load twitter module
 app.use('/getTwitterInfo', function(req, res) {
-    client.get('search/tweets', {'q': '#squarespace'}, function(error, tweets, response){
+    client.get('search/tweets', {'q': '%23squarespace%20OR%20%40squarespace', 'result_type':'recent', 'count': '100'}, function(error, tweets, response){
       if (!error) {
         console.log(tweets);
+        // filters
+        tweets.statuses = tweets.statuses.filter(function(tweet){
+            for(var i = 0; i < keywords.length; i++) {
+                if (tweet.text.indexOf( keywords[i]) > -1) {
+                    return false
+                }
+            }
+            return true
+        });
             // Then return it in json format:
             res.json({
                 success: true,
                 tweets: tweets
+
             });
       }
       else {console.log(error);
