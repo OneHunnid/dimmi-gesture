@@ -15,7 +15,7 @@ var Home = (function() {
 
 				// stagger the timeouts
 			  	for (var i = 0; i < data.tweets.statuses.length; i++) {
-					setTimeout(startTimeout.bind(this, i, data.tweets.statuses.length), 3000 * i);
+					setTimeout(startTimeout.bind(this, i, data.tweets.statuses.length), 5000 * i);
 			  	}
 			},
 	        dataType: "json"
@@ -25,18 +25,21 @@ var Home = (function() {
 	// Starts the timeout function 
 	function startTimeout(i, totalTweets ) {
 		if ( i === totalTweets - 1 ) {
-			setTimeout(getData, 3000);
+			setTimeout(getData, 5000);
 		}
 		currentlyViewingIndex = i;
-		console.log("currentlyViewingIndex = ", i);
-	    setHTML(allTweets[currentlyViewingIndex].text, allTweets[currentlyViewingIndex].user.screen_name, allTweets[currentlyViewingIndex].user.profile_image_url, allTweets[currentlyViewingIndex].created_at );
+
+		// Formatting Date
+		var tweetDate = moment(allTweets[currentlyViewingIndex].created_at).format( 'MMMM Do YYYY', 'en');
+		
+	    setHTML(allTweets[currentlyViewingIndex].text, allTweets[currentlyViewingIndex].user.screen_name, allTweets[currentlyViewingIndex].user.profile_image_url, tweetDate );
 	    fadeInData();
       }
 
     // Sets the tweet data to html elements
 	function setHTML(text, screen_name, avatar, date) {
 		document.querySelector(".activeTweet__message").innerHTML = text;
-		document.querySelector(".activeTweet__name").innerHTML = screen_name;
+		document.querySelector(".activeTweet__name").innerHTML = "@" + screen_name;
 		document.querySelector('.activeTweet__avatar img').src = avatar;
 		document.querySelector(".activeTweet__date").innerHTML = date;
 	}
