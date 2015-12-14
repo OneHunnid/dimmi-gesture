@@ -474,13 +474,13 @@ a {
   font-family: "gotham-medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.8rem;
   line-height: 3rem;
-  margin-bottom: 30px;
   font-weight: 400;
 }
 .activeTweet .activeTweet__message {
   font-size: 2.6rem;
   line-height: 3.6rem;
   font-weight: 500;
+  padding: 35px 0;
 }
 .footer {
   position: absolute;
