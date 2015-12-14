@@ -29,7 +29,7 @@ app.get('/', function (req, res) {
 
 // Load twitter module
 app.use('/getTwitterInfo', function(req, res) {
-    client.get('search/tweets', {'q': '%23squarespace%20OR%20%40squarespace', 'result_type':'recent', 'count': '100'}, function(error, tweets, response){
+    client.get('search/tweets', {'q': '%23squarespace%20OR%20%40squarespace%20-RT', 'result_type':'recent', 'count': '100' }, function(error, tweets, response){
       if (!error) {
         console.log(tweets);
         // filters
