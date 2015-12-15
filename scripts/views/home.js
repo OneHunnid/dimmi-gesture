@@ -51,15 +51,29 @@ var Home = (function() {
 
 	function motionDetection() {
 		gest.start();
+		
 		// Testing gesture control with gest.js
+		var activateGesture = false;
+
 		gest.options.subscribeWithCallback(function(gesture) {
-		    if (gesture.left) {
+
+			if (gesture.up === true) {
+				activateGesture = true;
+				console.log('up');
+			}
+			else if (activateGesture === true && gesture.left) {
 				currentlyViewingIndex = currentlyViewingIndex -1;
 				startTimeout(currentlyViewingIndex, allTweets.length);
+				console.log('left');
 		    }
-		    else if (gesture.right) {
+		    else if (activateGesture === true && gesture.right) {
 		    	currentlyViewingIndex = currentlyViewingIndex +1;
 		    	startTimeout(currentlyViewingIndex, allTweets.length);
+		    	console.log('right');
+		    }
+		    else if (activateGesture === true && gesture.down) {
+		    	activateGesture = false;
+		    	console.log('off');
 		    }
 		});
 	}
@@ -67,7 +81,6 @@ var Home = (function() {
 	// Starts getData() which retrieves and displays Twitter data 
 	getData();
 	motionDetection();
-	// gest.options.debug(true);
 
 	// KICKSTART VIEW
 	function initHome() {
