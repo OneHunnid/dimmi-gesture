@@ -62,12 +62,12 @@ var Home = (function() {
 				console.log('up');
 			}
 			else if (activateGesture === true && gesture.left) {
-				currentlyViewingIndex = currentlyViewingIndex -1;
+				currentlyViewingIndex = currentlyViewingIndex +1;
 				startTimeout(currentlyViewingIndex, allTweets.length);
 				console.log('left');
 		    }
 		    else if (activateGesture === true && gesture.right) {
-		    	currentlyViewingIndex = currentlyViewingIndex +1;
+		    	currentlyViewingIndex = currentlyViewingIndex -1;
 		    	startTimeout(currentlyViewingIndex, allTweets.length);
 		    	console.log('right');
 		    }
