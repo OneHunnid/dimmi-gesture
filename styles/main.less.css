@@ -444,6 +444,9 @@ a {
   left: 0;
   padding: 25px;
 }
+.header .header__logo img {
+  width: 50%;
+}
 .container-flex {
   display: flex;
   align-items: center;
