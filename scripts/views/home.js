@@ -22,7 +22,7 @@ var Home = (function() {
         });
     }
 
-	// Starts the timeout function 
+	// Starts the timeout function
 	function startTimeout(i, totalTweets ) {
 		if ( i === totalTweets - 1 ) {
 			setTimeout(getData, 30000);
@@ -44,14 +44,14 @@ var Home = (function() {
 		document.querySelector(".activeTweet__date").innerHTML = date;
 	}
 
-	// Fades in Twitter data 
+	// Fades in Twitter data
 	function fadeInData() {
 		$('.activeTweet').hide().fadeIn(900);
 	}
 
 	function motionDetection() {
 		gest.start();
-		
+
 		// Testing gesture control with gest.js
 		var activateGesture = false;
 
@@ -59,6 +59,8 @@ var Home = (function() {
 
 			if (gesture.up === true) {
 				activateGesture = true;
+				// Switch Notification ON
+				$('#switch').text('ON');
 				console.log('up');
 			}
 			else if (activateGesture === true && gesture.left) {
@@ -73,12 +75,14 @@ var Home = (function() {
 		    }
 		    else if (activateGesture === true && gesture.down) {
 		    	activateGesture = false;
+				// Switch Notification OFF
+				$('#switch').text('OFF');
 		    	console.log('off');
 		    }
 		});
 	}
 
-	// Starts getData() which retrieves and displays Twitter data 
+	// Starts getData() which retrieves and displays Twitter data
 	getData();
 	motionDetection();
 
