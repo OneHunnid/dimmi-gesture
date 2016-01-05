@@ -13,7 +13,7 @@ var Home = (function() {
 			  	console.log("data = ",data);
 			  	allTweets = data.tweets.statuses;
 
-				// stagger the timeouts
+				// Stagger the timeouts
 			  	for (var i = 0; i < data.tweets.statuses.length; i++) {
 					setTimeout(startTimeout.bind(this, i, data.tweets.statuses.length), 30000 * i);
 			  	}
@@ -36,7 +36,7 @@ var Home = (function() {
 	    fadeInData();
       }
 
-    // Sets the tweet data to html elements
+  // Sets the tweet data to html elements
 	function setHTML(text, screen_name, avatar, date) {
 		document.querySelector(".activeTweet__message").innerHTML = text;
 		document.querySelector(".activeTweet__name").innerHTML = "@" + screen_name;
@@ -60,9 +60,10 @@ var Home = (function() {
 			if (gesture.up === true) {
 				activateGesture = true;
 				// Switch Notification ON
-				$('#switch').text('ON');
+				$('#switch').text('Gesture On');
 				console.log('up');
 			}
+
 			else if (activateGesture === true && gesture.left) {
 				currentlyViewingIndex = currentlyViewingIndex +1;
 				startTimeout(currentlyViewingIndex, allTweets.length);
@@ -76,7 +77,7 @@ var Home = (function() {
 		    else if (activateGesture === true && gesture.down) {
 		    	activateGesture = false;
 				// Switch Notification OFF
-				$('#switch').text('OFF');
+				$('#switch').text('Gesture Off');
 		    	console.log('off');
 		    }
 		});
