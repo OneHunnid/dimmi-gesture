@@ -49,36 +49,64 @@ var Home = (function() {
 		$('.activeTweet').hide().fadeIn(900);
 	}
 
+	// Gesture Control & recognition
 	function motionDetection() {
 		gest.start();
 
 		// Testing gesture control with gest.js
 		var activateGesture = false;
+		var pauseGestures = false;
 
 		gest.options.subscribeWithCallback(function(gesture) {
 
-			if (gesture.up === true) {
+			if (gesture.up === true && activateGesture === false && pauseGestures === false) {
+
 				activateGesture = true;
+				pauseGestures = true;
+
+				setTimeout(function() {
+					pauseGestures = false;
+				}, 1500);
+
 				// Switch Notification ON
 				$('#switch').text('Gesture On');
 				console.log('up');
 			}
 
-			else if (activateGesture === true && gesture.left) {
+			else if (activateGesture === true && pauseGestures === false && gesture.left) {
+				pauseGestures = true;
+
+				setTimeout(function() {
+					pauseGestures = false;
+				}, 1500);
+
 				currentlyViewingIndex = currentlyViewingIndex +1;
 				startTimeout(currentlyViewingIndex, allTweets.length);
 				console.log('left');
 		    }
-		    else if (activateGesture === true && gesture.right) {
+		    else if (activateGesture === true && pauseGestures === false && gesture.right) {
+					pauseGestures = true;
+
+					setTimeout(function() {
+						pauseGestures = false;
+					}, 1500);
+
 		    	currentlyViewingIndex = currentlyViewingIndex -1;
 		    	startTimeout(currentlyViewingIndex, allTweets.length);
 		    	console.log('right');
 		    }
-		    else if (activateGesture === true && gesture.down) {
+		    else if (activateGesture === true && pauseGestures === false && gesture.down) {
 		    	activateGesture = false;
+					pauseGestures = true;
+
+					setTimeout(function() {
+						pauseGestures = false;
+					}, 1500);
+
 				// Switch Notification OFF
 				$('#switch').text('Gesture Off');
 		    	console.log('off');
+
 		    }
 		});
 	}
@@ -86,6 +114,7 @@ var Home = (function() {
 	// Starts getData() which retrieves and displays Twitter data
 	getData();
 	motionDetection();
+
 
 	// KICKSTART VIEW
 	function initHome() {
