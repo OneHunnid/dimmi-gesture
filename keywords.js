@@ -339,6 +339,7 @@ module.exports = [
 "shemale",
 "shibari",
 "shit",
+"SHIT",
 "shota",
 "shrimping",
 "slanteye",
