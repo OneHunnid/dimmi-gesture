@@ -54,7 +54,7 @@ app.use('/getTwitterInfo', function(req, res) {
                 success: false,
                 error: error
             });}
-    }); 
+    });
 });
 
 // Start our server
