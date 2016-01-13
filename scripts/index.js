@@ -113,6 +113,6 @@
 
 	// Starts getData() which retrieves and displays Twitter data
 	getData();
-	motionDetection();
+    //	motionDetection();
 
 })();
